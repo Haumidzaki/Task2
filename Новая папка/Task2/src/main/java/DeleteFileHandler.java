@@ -30,6 +30,6 @@ public class DeleteFileHandler extends Thread {
         long end = System.nanoTime();
 
         String dateStart = dateFormat.format(new Date());
-        log.log(Level.INFO, "дата: " + dateStart + " время выполнения " + (end - start) + " нс");
+        log.log(Level.INFO, "дата: " + dateStart + " время выполнения: " + (end - start) + " нс");
     }
 }
