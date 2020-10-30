@@ -1,16 +1,14 @@
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import util.DateFormatter;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class DeleteFileHandler extends Thread {
     private static final Logger log = Logger.getLogger(DeleteFileHandler.class);
-    private final DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private final File file;
 
     public DeleteFileHandler(File file) {
@@ -29,7 +27,7 @@ public class DeleteFileHandler extends Thread {
 
         long end = System.nanoTime();
 
-        String dateStart = dateFormat.format(new Date());
+        String dateStart = DateFormatter.dateFormatForHandler(new Date());
         log.log(Level.INFO, "дата: " + dateStart + " время выполнения: " + (end - start) + " нс");
     }
 }
