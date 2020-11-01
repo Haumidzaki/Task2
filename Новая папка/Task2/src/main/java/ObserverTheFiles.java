@@ -1,5 +1,3 @@
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
 import util.Extension;
 
 import java.io.File;
@@ -10,7 +8,6 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class ObserverTheFiles {
-    private static final Logger log = Logger.getLogger(ObserverTheFiles.class);
     private final Path path;
 
     public ObserverTheFiles(Path path) {
