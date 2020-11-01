@@ -43,15 +43,14 @@ public class ObserverTheFiles {
                                     .toLocalDateTime()
                                     .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
 
-                    log.log(Level.INFO, message);
 
                     switch (extension) {
                         case "xml":
                         case "json":
-                            new ReadFileHandler(file).start();
+                            new ReadFileHandler(file, message).start();
                             break;
                         default:
-                            new DeleteFileHandler(file).start();
+                            new DeleteFileHandler(file, message).start();
                             break;
                     }
                 }

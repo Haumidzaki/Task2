@@ -9,10 +9,12 @@ import java.util.Date;
 public class ReadFileHandler extends Thread {
     private static final Logger log = Logger.getLogger(ReadFileHandler.class);
     private final File file;
+    private String message;
 
 
-    public ReadFileHandler(File file) {
+    public ReadFileHandler(File file, String message) {
         this.file = file;
+        this.message = message;
     }
 
     @Override
@@ -30,6 +32,7 @@ public class ReadFileHandler extends Thread {
         long end = System.nanoTime();
 
         String dateStart = DateFormatter.dateFormatForHandler(new Date());
+        log.log(Level.INFO, message);
         log.log(Level.INFO, "дата: " + dateStart + " время выполнения: "
                 + (end - start) + " нс" + " количество строк: " + count);
     }
